@@ -8,11 +8,13 @@ import ADS1x15
 led = LED(2)
 
 ADS = ADS1x15.ADS1115(1, 0x48)
+ADS.setMode(ADS.MODE_SINGLE)
+ADS.setGain(ADS.PGA_4_096V)
 
 print("ADS1X15_LIB_VERSION: {}".format(ADS1x15.__version__))
 
 # set gain to 4.096V max
-ADS.setGain(ADS.PGA_4_096V)
+
 f = ADS.toVoltage()
 
 while True :
